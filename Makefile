@@ -67,6 +67,11 @@ deploy: LDFLAGS = -s -w
 deploy: upx
 	sam deploy --stack-name $(STACK_NAME) --template-file $(PACKAGED_TEMPLATE) --capabilities CAPABILITY_IAM
 
+.PHONY: invoke-local
+invoke-local:
+	aws lambda invoke --function-name $(FUNCTION_NAME) --endpoint-url $(ENDPOINT_URL) --payload file://test/events/aws-proxy.json /dev/stdout
+
 .PHONY: invoke
+invoke: ENDPOINT_URL := http://127.0.0.1:3001
 invoke:
 	aws lambda invoke --function-name $(FUNCTION_NAME) --endpoint-url $(ENDPOINT_URL) --payload file://test/events/aws-proxy.json /dev/stdout

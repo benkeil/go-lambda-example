@@ -4,7 +4,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 
 Resources:
-  HelloFunction:
+  hello:
     Type: AWS::Serverless::Function
     Properties:
       Handler: main
@@ -17,13 +17,13 @@ Resources:
           LOCALSTACK_URL: "http://192.168.178.21"
           QUEUE_ID: "hello"
           QUEUE_URL: "http://192.168.178.21:4576/queue/hello"
-      Events:
-        HelloEvent:
-          Type: Api
-          Properties:
-            Path: /hello
-            Method: get
-
-Outputs:
-  Endpoint:
-    Value:  !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+#      Events:
+#        HelloEvent:
+#          Type: Api
+#          Properties:
+#            Path: /hello
+#            Method: get
+#
+#Outputs:
+#  Endpoint:
+#    Value:  !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
