@@ -12,3 +12,6 @@
 *.out
 
 main
+lambda.zip
+build/
+.terraform/
