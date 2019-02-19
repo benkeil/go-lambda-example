@@ -15,8 +15,8 @@ Resources:
         Variables:
           # we can also use docker networks to connect via localhost
           LOCALSTACK_URL: "http://192.168.178.21"
-          QUEUE_ID: "hello-queue"
-          QUEUE_URL: "http://192.168.178.21:4576/queue/hello-queue"
+          QUEUE_ID: "hello"
+          QUEUE_URL: "http://192.168.178.21:4576/queue/hello"
       Events:
         HelloEvent:
           Type: Api
