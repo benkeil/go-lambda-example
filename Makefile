@@ -17,7 +17,7 @@ test:
 
 .PHONY: clean
 clean:
-	rm -f $(OUTPUT) $(PACKAGED_TEMPLATE) lambda.zip
+	rm -f $(OUTPUT) $(PACKAGED_TEMPLATE) build/lambda.zip
 
 .PHONY: install
 install:
@@ -55,8 +55,8 @@ package-local: build
 deploy-local: package-local
 	aws lambda update-function-code \
 			--endpoint-url $(ENDPOINT_URL) \
-    		--function-name $(FUNCTION_NAME) \
-    		--zip-file "fileb://lambda.zip"
+			--function-name $(FUNCTION_NAME) \
+			--zip-file "fileb://build/lambda.zip"
 
 .PHONY: upx
 upx: package

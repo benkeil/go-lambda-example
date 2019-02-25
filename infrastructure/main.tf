@@ -5,6 +5,7 @@ provider "aws" {
     sqs = "${local.aws_endpoint_sqs}"
     s3 = "${local.aws_endpoint_s3}"
     lambda = "${local.aws_endpoint_lambda}"
+    #iam = "${local.aws_endpoint_iam}"
   }
   max_retries = 1
 }

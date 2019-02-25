@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "hello" {
-  count = "${var.use_localstack ? 0 : 1}"
+  #count = "${var.use_localstack ? 0 : 1}"
   filename         = "lambda.zip"
   function_name    = "hello"
   role             = "${aws_iam_role.lambda.arn}"
@@ -22,7 +22,7 @@ resource "aws_lambda_function" "hello" {
 }
 
 data "archive_file" "lambda_zip" {
-  count = "${var.use_localstack ? 0 : 1}"
+  #count = "${var.use_localstack ? 0 : 1}"
   type                    = "zip"
   source_content          = "hello lambda"
   source_content_filename = "main"
@@ -30,7 +30,7 @@ data "archive_file" "lambda_zip" {
 }
 
 resource "aws_iam_role" "lambda" {
-  count = "${var.use_localstack ? 0 : 1}"
+  #count = "${var.use_localstack ? 0 : 1}"
   name = "hello-lambda"
 
   assume_role_policy = <<EOF
